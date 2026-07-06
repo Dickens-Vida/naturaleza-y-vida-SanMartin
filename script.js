@@ -1,165 +1,106 @@
-/*==================================================
-NATURALEZA Y VIDA
-Expedición San Martín de los Andes
-==================================================*/
-
+/* ==========================================================
+   NATURALEZA Y VIDA
+   Expedición San Martín de los Andes
+   ========================================================== */
 
 /*==========================================
 LOADER
 ==========================================*/
-
-window.addEventListener("load",()=>{
-
-const loader=document.getElementById("loader");
-
-if(loader){
-
-loader.style.opacity="0";
-
-setTimeout(()=>{
-
-loader.style.display="none";
-
-},800);
-
-}
-
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    if (loader) {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 800);
+    }
 });
-
 
 /*==========================================
-NAVBAR
+NAVBAR / HEADER (CORREGIDO PARA .navbar)
 ==========================================*/
-
-const header=document.querySelector("header");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>80){
-
-header.classList.add("scrolled");
-
-}else{
-
-header.classList.remove("scrolled");
-
+const navbar = document.querySelector(".navbar");
+if (navbar) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 80) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
 }
 
-});
 /*==========================================
 SCROLL REVEAL
 ==========================================*/
+const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-zoom");
 
-const reveals=document.querySelectorAll(
-
-".reveal,.reveal-left,.reveal-right,.reveal-zoom"
-
-);
-
-function mostrar(){
-
-reveals.forEach(item=>{
-
-const top=item.getBoundingClientRect().top;
-
-const visible=window.innerHeight-120;
-
-if(top<visible){
-
-item.classList.add("active");
-
+function mostrar() {
+    reveals.forEach(item => {
+        const top = item.getBoundingClientRect().top;
+        const visible = window.innerHeight - 120;
+        if (top < visible) {
+            item.classList.add("active");
+        }
+    });
 }
 
+window.addEventListener("scroll", mostrar);
+mostrar(); // Ejecución inicial por si hay elementos ya visibles
+
+/*==========================================
+CUENTA REGRESIVA (PREVENCIÓN DE NEGATIVOS)
+==========================================*/
+const destino = new Date("September 29, 2026 10:00:00").getTime();
+const contador = document.getElementById("contador");
+
+if (contador) {
+    const intervaloContador = setInterval(() => {
+        const ahora = new Date().getTime();
+        const diferencia = destino - ahora;
+
+        if (diferencia <= 0) {
+            contador.innerHTML = "¡Expedición en curso! 🥾";
+            clearInterval(intervaloContador);
+            return;
+        }
+
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        contador.innerHTML = dias + " días para salir";
+    }, 1000);
+}
+
+/*==========================================
+HOJAS FLOTANTES
+==========================================*/
+const totalHojas = 18;
+for (let i = 0; i < totalHojas; i++) {
+    const hoja = document.createElement("div");
+    hoja.className = "hoja";
+    hoja.innerHTML = "🍃";
+    hoja.style.left = Math.random() * 100 + "vw";
+    hoja.style.animationDuration = (12 + Math.random() * 10) + "s";
+    hoja.style.animationDelay = Math.random() * 10 + "s";
+    document.body.appendChild(hoja);
+}
+
+/*==========================================
+PARALLAX EN HERO EFFECT
+==========================================*/
+window.addEventListener("mousemove", (e) => {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    hero.style.backgroundPosition = `${50 + x * 3}% ${50 + y * 3}%`;
 });
 
-}
-
-window.addEventListener("scroll",mostrar);
-
-mostrar();
-/*==========================================
-CUENTA REGRESIVA
-==========================================*/
-
-const destino=new Date("September 29, 2026 10:00:00").getTime();
-
-const contador=document.getElementById("contador");
-
-if(contador){
-
-setInterval(()=>{
-
-const ahora=new Date().getTime();
-
-const diferencia=destino-ahora;
-
-const dias=Math.floor(
-
-diferencia/(1000*60*60*24)
-
-);
-
-contador.innerHTML=
-
-dias+" días";
-
-},1000);
-
-}
-/*==========================================
-HOJAS
-==========================================*/
-
-const hojas=18;
-
-for(let i=0;i<hojas;i++){
-
-const hoja=document.createElement("div");
-
-hoja.className="hoja";
-
-hoja.innerHTML="🍃";
-
-hoja.style.left=Math.random()*100+"vw";
-
-hoja.style.animationDuration=
-
-12+Math.random()*10+"s";
-
-hoja.style.animationDelay=
-
-Math.random()*10+"s";
-
-document.body.appendChild(hoja);
-
-}
-/*==========================================
-PARALLAX
-==========================================*/
-
-window.addEventListener("mousemove",(e)=>{
-
-const hero=document.querySelector(".hero");
-
-if(!hero) return;
-
-const x=e.clientX/window.innerWidth;
-
-const y=e.clientY/window.innerHeight;
-
-hero.style.backgroundPosition=
-
-`${50+x*3}% ${50+y*3}%`;
-
-});
 /*==========================================
  * JUEGO DE LA MOCHILA (DRAG & DROP)
  *==========================================*/
-const objetosPermitidos = ["🔦", "🥾", "💧", "🧴", "⛺", "🩹"]; // Elementos de expedición
+const objetosPermitidos = ["🔦", "🥾", "💧", "🧴", "⛺", "🩹"];
 const mochila = document.querySelector(".mochila");
-const contenedorObjetos = document.querySelector(".objetos");
 
-// Configurar los elementos arrastrables
 document.querySelectorAll(".objeto").forEach(objeto => {
     objeto.addEventListener("dragstart", (e) => {
         e.dataTransfer.setData("text/plain", e.target.innerText);
@@ -171,36 +112,41 @@ document.querySelectorAll(".objeto").forEach(objeto => {
     });
 });
 
-// Configurar la zona de la mochila
 if (mochila) {
     mochila.addEventListener("dragover", (e) => {
-        e.preventDefault(); // Permitir soltar
-        mochila.style.borderColor = "var(--verde-claro, #4caf50)";
+        e.preventDefault();
+        mochila.style.borderColor = "#74c69d";
     });
 
     mochila.addEventListener("dragleave", () => {
-        mochila.style.borderColor = "var(--verde)";
+        mochila.style.borderColor = "#a3c9a8";
     });
 
     mochila.addEventListener("drop", (e) => {
         e.preventDefault();
-        mochila.style.borderColor = "var(--verde)";
+        mochila.style.borderColor = "#a3c9a8";
         
         const item = e.dataTransfer.getData("text/plain");
         
-        // Verificar si el objeto es apto para la expedición
+        // Encontrar el elemento botón original para darle feedback visual también
+        const botonOriginal = Array.from(document.querySelectorAll(".objeto")).find(btn => btn.innerText === item);
+        
         if (objetosPermitidos.some(el => item.includes(el))) {
-            mochila.innerHTML = `🎒 <div style="font-size: 20px; color: green; font-weight: bold;">¡${item} guardado con éxito!</div>`;
-            // Aquí puedes sumar puntos o lanzar un sonido de éxito ✅
+            mochila.innerHTML = `<span class="mochila-icono">🎒</span><div style="font-size: 18px; color: #74c69d; font-weight: bold;">¡${item} guardado con éxito!</div>`;
+            if (botonOriginal) botonOriginal.classList.add("correcto-activo");
         } else {
-            mochila.innerHTML = `🎒 <div style="font-size: 20px; color: red; font-weight: bold;">¡${item} no sirve para Hua Hum!</div>`;
-            // Efecto de rebote o error ❌
+            mochila.innerHTML = `<span class="mochila-icono">🎒</span><div style="font-size: 18px; color: #ff6b6b; font-weight: bold;">¡${item} no sirve para Hua Hum!</div>`;
+            if (botonOriginal) {
+                botonOriginal.classList.add("incorrecto-activo");
+                setTimeout(() => botonOriginal.classList.remove("incorrecto-activo"), 1500);
+            }
             setTimeout(() => {
-                mochila.innerHTML = "🎒 <p>Arrastrá tu equipo acá</p>";
+                mochila.innerHTML = `<span class="mochila-icono">🎒</span><p>Arrastrá tu equipo acá</p>`;
             }, 2000);
         }
     });
 }
+
 /*==========================================
  * QUIZ DEL EXPEDICIONARIO Y PASAPORTE
  *==========================================*/
@@ -232,39 +178,66 @@ function mostrarPregunta() {
     if (preguntaActual < preguntasQuiz.length) {
         const p = preguntasQuiz[preguntaActual];
         contenedorQuiz.innerHTML = `
-            <div class="quiz-box animate__animated animate__fadeIn">
+            <div class="quiz-box">
                 <h3>Pregunta ${preguntaActual + 1} de ${preguntasQuiz.length}</h3>
                 <p class="pregunta-texto">${p.pregunta}</p>
                 <div class="opciones-container">
                     ${p.opciones.map((opcion, index) => `
-                        <button class="btn-opcion" onclick="verificarRespuesta(${index})">${opcion}</button>
+                        <button class="btn-opcion" data-index="${index}">${opcion}</button>
                     `).join('')}
                 </div>
             </div>
         `;
+
+        // Añadir manejadores de eventos dinámicos a los botones creados
+        document.querySelectorAll(".btn-opcion").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const indiceSeleccionado = parseInt(e.target.getAttribute("data-index"));
+                verificarRespuesta(indiceSeleccionado, e.target);
+            });
+        });
     } else {
         generarPasaporte();
     }
 }
 
-window.verificarRespuesta = function(indiceSeleccionado) {
-    if (indiceSeleccionado === preguntasQuiz[preguntaActual].correcta) {
+function verificarRespuesta(indiceSeleccionado, botonPresionado) {
+    const correcta = preguntasQuiz[preguntaActual].correcta;
+    
+    // Deshabilitar todos los botones temporalmente para evitar doble click
+    document.querySelectorAll(".btn-opcion").forEach(btn => btn.style.pointerEvents = "none");
+
+    if (indiceSeleccionado === correcta) {
         puntaje++;
-        // Aquí podrías agregar un efecto visual de acierto (verde)
+        botonPresionado.style.background = "#4caf50";
+        botonPresionado.style.borderColor = "#4caf50";
+    } else {
+        botonPresionado.style.background = "#f44336";
+        botonPresionado.style.borderColor = "#f44336";
+        // Destacar también la correcta para que aprenda
+        const botones = document.querySelectorAll(".btn-opcion");
+        if(botones[correcta]) {
+            botones[correcta].style.background = "#4caf50";
+            botones[correcta].style.borderColor = "#4caf50";
+        }
     }
-    preguntaActual++;
-    mostrarPregunta();
-};
+
+    // Pequeño delay de 1.2 segundos para que se asimile la respuesta antes de avanzar
+    setTimeout(() => {
+        preguntaActual++;
+        mostrarPregunta();
+    }, 1200);
+}
 
 function generarPasaporte() {
     const contenedorQuiz = document.getElementById("quiz-contenedor");
     if (!contenedorQuiz) return;
 
-    const aprobado = puntaje >= 2; // Aprueba con 2 o más correctas
+    const aprobado = puntaje >= 2; 
     
     if (aprobado) {
         contenedorQuiz.innerHTML = `
-            <div class="pasaporte animate__animated animate__flipInY">
+            <div class="pasaporte">
                 <div class="pasaporte-header">
                     <h2>REPÚBLICA EXPEDICIONARIA</h2>
                     <p>PASAPORTE OFICIAL DE AVENTURA</p>
@@ -288,19 +261,24 @@ function generarPasaporte() {
             <div class="quiz-fallido">
                 <h3>¡Casi lo lográs!</h3>
                 <p>Obtuviste ${puntaje}/${preguntasQuiz.length} puntos. Necesitás repasar la bitácora para estar listo para la expedición.</p>
-                <button class="btn-reiniciar" onclick="reiniciarQuiz()">Intentar de nuevo 🔄</button>
+                <button class="btn-reiniciar" id="btn-reiniciar-quiz">Intentar de nuevo 🔄</button>
             </div>
         `;
+        document.getElementById("btn-reiniciar-quiz").addEventListener("click", reiniciarQuiz);
     }
 }
 
-window.reiniciarQuiz = function() {
+function reiniciarQuiz() {
     preguntaActual = 0;
     puntaje = 0;
+    // Limpiar clases de la mochila por si quiere repetir toda la experiencia limpia
+    document.querySelectorAll(".objeto").forEach(btn => {
+        btn.classList.remove("correcto-activo", "incorrecto-activo");
+    });
     mostrarPregunta();
-};
+}
 
-// Iniciar el quiz cuando cargue el documento
+// Iniciar el quiz al cargar el DOM de forma segura
 document.addEventListener("DOMContentLoaded", () => {
     mostrarPregunta();
 });
