@@ -387,3 +387,10 @@ header.scrolled {
 .card h3 {
   margin-top: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 90px;
+}
