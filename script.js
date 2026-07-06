@@ -96,55 +96,79 @@ window.addEventListener("mousemove", (e) => {
 });
 
 /*==========================================
- * JUEGO DE LA MOCHILA (DRAG & DROP)
+ * JUEGO DE LA MOCHILA (DRAG & DROP + CLICK BACKUP)
  *==========================================*/
 const objetosPermitidos = ["🔦", "🥾", "💧", "🧴", "⛺", "🩹"];
 const mochila = document.querySelector(".mochila");
 
+// Configurar los elementos arrastrables y clickeables
 document.querySelectorAll(".objeto").forEach(objeto => {
+    // Asegurar por código que sean arrastrables
+    objeto.setAttribute("draggable", "true");
+    objeto.style.cursor = "grab";
+
+    // Evento para arrastrar (PC)
     objeto.addEventListener("dragstart", (e) => {
-        e.dataTransfer.setData("text/plain", e.target.innerText);
+        e.dataTransfer.setData("text/plain", e.target.innerText.trim());
         objeto.style.opacity = "0.5";
     });
 
     objeto.addEventListener("dragend", () => {
         objeto.style.opacity = "1";
     });
+
+    // ¡NUEVO! Soporte por si falla el drag o para Mobile (Hacer Click/Touch)
+    objeto.addEventListener("click", () => {
+        procesarObjetoMochila(objeto.innerText.trim(), objeto);
+    });
 });
 
 if (mochila) {
     mochila.addEventListener("dragover", (e) => {
         e.preventDefault();
-        mochila.style.borderColor = "#74c69d";
+        mochila.style.borderColor = "#4caf50";
+        mochila.style.background = "rgba(76, 175, 80, 0.1)";
     });
 
     mochila.addEventListener("dragleave", () => {
-        mochila.style.borderColor = "#a3c9a8";
+        mochila.style.borderColor = "var(--verde)";
+        mochila.style.background = "transparent";
     });
 
     mochila.addEventListener("drop", (e) => {
         e.preventDefault();
-        mochila.style.borderColor = "#a3c9a8";
+        mochila.style.borderColor = "var(--verde)";
+        mochila.style.background = "transparent";
         
         const item = e.dataTransfer.getData("text/plain");
+        const botonOriginal = Array.from(document.querySelectorAll(".objeto")).find(btn => btn.innerText.trim() === item);
         
-        // Encontrar el elemento botón original para darle feedback visual también
-        const botonOriginal = Array.from(document.querySelectorAll(".objeto")).find(btn => btn.innerText === item);
-        
-        if (objetosPermitidos.some(el => item.includes(el))) {
-            mochila.innerHTML = `<span class="mochila-icono">🎒</span><div style="font-size: 18px; color: #74c69d; font-weight: bold;">¡${item} guardado con éxito!</div>`;
-            if (botonOriginal) botonOriginal.classList.add("correcto-activo");
-        } else {
-            mochila.innerHTML = `<span class="mochila-icono">🎒</span><div style="font-size: 18px; color: #ff6b6b; font-weight: bold;">¡${item} no sirve para Hua Hum!</div>`;
-            if (botonOriginal) {
-                botonOriginal.classList.add("incorrecto-activo");
-                setTimeout(() => botonOriginal.classList.remove("incorrecto-activo"), 1500);
-            }
-            setTimeout(() => {
-                mochila.innerHTML = `<span class="mochila-icono">🎒</span><p>Arrastrá tu equipo acá</p>`;
-            }, 2000);
-        }
+        procesarObjetoMochila(item, botonOriginal);
     });
+}
+
+// Función unificada para validar si el objeto sirve o no
+function procesarObjetoMochila(item, botonOriginal) {
+    if (!mochila || !item) return;
+
+    // Extraer solo el emoji o texto limpio para comparar
+    if (objetosPermitidos.some(el => item.includes(el))) {
+        mochila.innerHTML = `🎒 <div style="font-size: 20px; color: #4caf50; font-weight: bold; margin-top:10px;">¡${item} guardado con éxito!</div>`;
+        if (botonOriginal) {
+            botonOriginal.style.transform = "scale(0.9)";
+            botonOriginal.style.opacity = "0.4";
+            botonOriginal.style.pointerEvents = "none"; // Evita re-clickearlo
+        }
+    } else {
+        mochila.innerHTML = `🎒 <div style="font-size: 20px; color: #f44336; font-weight: bold; margin-top:10px;">¡${item} no sirve para Hua Hum!</div>`;
+        if (botonOriginal) {
+            botonOriginal.classList.add("shake-effect"); // Animación opcional de error
+            setTimeout(() => botonOriginal.classList.remove("shake-effect"), 500);
+        }
+        setTimeout(() => {
+            mochila.innerHTML = "🎒 <p>Arrastrá tu equipo acá (o hacé clic)</p>";
+        }, 2000);
+    }
 }
 
 /*==========================================
