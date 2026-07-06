@@ -312,7 +312,16 @@ header {
   padding: 15px 30px;
   transition: all 0.3s ease;
 }
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  padding-top: 90px;
+}
+section {
+  scroll-margin-top: 90px;
+}
 /* Para que el contenido no quede debajo del header */
 body {
   padding-top: 80px;
