@@ -1877,3 +1877,69 @@ background-position:
     position: relative;
     z-index: 2;
 }
+/*==================================================
+ * ENLACE REAL DE IMÁGENES: ACTIVIDADES
+ *==================================================*/
+.actividad-img.rapel {
+    background-image: url("assets/img/rapel.webp");
+}
+.actividad-img.trekking {
+    background-image: url("assets/img/trekking.webp");
+}
+.actividad-img.chachin {
+    background-image: url("assets/img/chachin.webp");
+}
+.actividad-img.bahia {
+    background-image: url("assets/img/bahia.webp");
+}
+.actividad-img.queni {
+    background-image: url("assets/img/queni.webp");
+}
+.actividad-img.termas {
+    background-image: url("assets/img/termas.webp");
+}
+.actividad-img.mallo {
+    background-image: url("assets/img/mallo.webp");
+}
+.actividad-img.guardaparques {
+    background-image: url("assets/img/guardaparques.webp");
+}
+
+/*==================================================
+ * ENLACE REAL DE IMÁGENES: GALERÍA (Si usás IDs o clases extras)
+ * Si tus tarjetas de fotos usan clases específicas en el HTML, 
+ * enlazalas acá siguiendo este patrón:
+ *==================================================*/
+.foto.paisaje1 {
+    background-image: url("assets/img/paisaje1.webp");
+}
+.foto.paisaje2 {
+    background-image: url("assets/img/paisaje2.webp");
+}
+.foto.paisaje3 {
+    background-image: url("assets/img/paisaje3.webp");
+}
+
+/*==================================================
+ * PARCHE EXTRA DE SEPARACIÓN (CLIP-PATH FIX)
+ *==================================================*/
+section {
+    /* Forzamos a que las secciones limpien los flujos y controlen su fondo */
+    margin-bottom: 0px !important;
+}
+
+.actividades {
+    /* Cambiamos el fondo oscuro experimental por el verde suave original 
+       pero asegurando que tape cualquier transparencia del separador anterior */
+    background: #edf8f3 !important; 
+    color: var(--texto) !important;
+}
+
+.actividades h2 {
+    color: var(--bosque) !important;
+}
+
+/* Si el separador decorativo inferior hace cortocircuito visual con la sección interactiva */
+.actividades::after {
+    display: none; /* Desactivamos el recorte recortado en esta sección para evitar solapamientos */
+}
