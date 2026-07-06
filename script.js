@@ -152,3 +152,155 @@ hero.style.backgroundPosition=
 `${50+x*3}% ${50+y*3}%`;
 
 });
+/*==========================================
+ * JUEGO DE LA MOCHILA (DRAG & DROP)
+ *==========================================*/
+const objetosPermitidos = ["🔦", "🥾", "💧", "🧴", "⛺", "🩹"]; // Elementos de expedición
+const mochila = document.querySelector(".mochila");
+const contenedorObjetos = document.querySelector(".objetos");
+
+// Configurar los elementos arrastrables
+document.querySelectorAll(".objeto").forEach(objeto => {
+    objeto.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", e.target.innerText);
+        objeto.style.opacity = "0.5";
+    });
+
+    objeto.addEventListener("dragend", () => {
+        objeto.style.opacity = "1";
+    });
+});
+
+// Configurar la zona de la mochila
+if (mochila) {
+    mochila.addEventListener("dragover", (e) => {
+        e.preventDefault(); // Permitir soltar
+        mochila.style.borderColor = "var(--verde-claro, #4caf50)";
+    });
+
+    mochila.addEventListener("dragleave", () => {
+        mochila.style.borderColor = "var(--verde)";
+    });
+
+    mochila.addEventListener("drop", (e) => {
+        e.preventDefault();
+        mochila.style.borderColor = "var(--verde)";
+        
+        const item = e.dataTransfer.getData("text/plain");
+        
+        // Verificar si el objeto es apto para la expedición
+        if (objetosPermitidos.some(el => item.includes(el))) {
+            mochila.innerHTML = `🎒 <div style="font-size: 20px; color: green; font-weight: bold;">¡${item} guardado con éxito!</div>`;
+            // Aquí puedes sumar puntos o lanzar un sonido de éxito ✅
+        } else {
+            mochila.innerHTML = `🎒 <div style="font-size: 20px; color: red; font-weight: bold;">¡${item} no sirve para Hua Hum!</div>`;
+            // Efecto de rebote o error ❌
+            setTimeout(() => {
+                mochila.innerHTML = "🎒 <p>Arrastrá tu equipo acá</p>";
+            }, 2000);
+        }
+    });
+}
+/*==========================================
+ * QUIZ DEL EXPEDICIONARIO Y PASAPORTE
+ *==========================================*/
+const preguntasQuiz = [
+    {
+        pregunta: "¿Dónde se encuentra el paso fronterizo Hua Hum?",
+        opciones: ["Entre Argentina y Chile", "Entre Argentina y Bolivia", "Entre Argentina y Brasil"],
+        correcta: 0
+    },
+    {
+        pregunta: "¿Qué tipo de vegetación es característica de esta zona?",
+        opciones: ["Selva Misionera", "Selva Valdiviana", "Estepa Patagónica"],
+        correcta: 1
+    },
+    {
+        pregunta: "¿Cuál es el lago que se navega para llegar a Hua Hum desde San Martín?",
+        opciones: ["Lago Nahuel Huapi", "Lago Lácar", "Lago Correntoso"],
+        correcta: 1
+    }
+];
+
+let preguntaActual = 0;
+let puntaje = 0;
+
+function mostrarPregunta() {
+    const contenedorQuiz = document.getElementById("quiz-contenedor");
+    if (!contenedorQuiz) return;
+
+    if (preguntaActual < preguntasQuiz.length) {
+        const p = preguntasQuiz[preguntaActual];
+        contenedorQuiz.innerHTML = `
+            <div class="quiz-box animate__animated animate__fadeIn">
+                <h3>Pregunta ${preguntaActual + 1} de ${preguntasQuiz.length}</h3>
+                <p class="pregunta-texto">${p.pregunta}</p>
+                <div class="opciones-container">
+                    ${p.opciones.map((opcion, index) => `
+                        <button class="btn-opcion" onclick="verificarRespuesta(${index})">${opcion}</button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    } else {
+        generarPasaporte();
+    }
+}
+
+window.verificarRespuesta = function(indiceSeleccionado) {
+    if (indiceSeleccionado === preguntasQuiz[preguntaActual].correcta) {
+        puntaje++;
+        // Aquí podrías agregar un efecto visual de acierto (verde)
+    }
+    preguntaActual++;
+    mostrarPregunta();
+};
+
+function generarPasaporte() {
+    const contenedorQuiz = document.getElementById("quiz-contenedor");
+    if (!contenedorQuiz) return;
+
+    const aprobado = puntaje >= 2; // Aprueba con 2 o más correctas
+    
+    if (aprobado) {
+        contenedorQuiz.innerHTML = `
+            <div class="pasaporte animate__animated animate__flipInY">
+                <div class="pasaporte-header">
+                    <h2>REPÚBLICA EXPEDICIONARIA</h2>
+                    <p>PASAPORTE OFICIAL DE AVENTURA</p>
+                </div>
+                <div class="pasaporte-body">
+                    <div class="pasaporte-foto">👤</div>
+                    <div class="pasaporte-datos">
+                        <p><strong>ESTADO:</strong> EXPEDICIONARIO ACTIVO</p>
+                        <p><strong>DESTINO:</strong> HUA HUM / SAN MARTÍN DE LOS ANDES</p>
+                        <p><strong>RANGO:</strong> ${puntaje === 3 ? "Guía de Montaña ⭐⭐⭐" : "Explorador Autorizado ⭐⭐"}</p>
+                        <p><strong>PUNTAJE:</strong> ${puntaje}/${preguntasQuiz.length} Aciertos</p>
+                    </div>
+                </div>
+                <div class="pasaporte-sello">
+                    <span>APROBADO</span>
+                </div>
+            </div>
+        `;
+    } else {
+        contenedorQuiz.innerHTML = `
+            <div class="quiz-fallido">
+                <h3>¡Casi lo lográs!</h3>
+                <p>Obtuviste ${puntaje}/${preguntasQuiz.length} puntos. Necesitás repasar la bitácora para estar listo para la expedición.</p>
+                <button class="btn-reiniciar" onclick="reiniciarQuiz()">Intentar de nuevo 🔄</button>
+            </div>
+        `;
+    }
+}
+
+window.reiniciarQuiz = function() {
+    preguntaActual = 0;
+    puntaje = 0;
+    mostrarPregunta();
+};
+
+// Iniciar el quiz cuando cargue el documento
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarPregunta();
+});
