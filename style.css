@@ -766,3 +766,22 @@ RESPONSIVE COMPLETO
     .pasaporte-body { flex-direction: column; text-align: center; }
     #contador { left: 50%; transform: translateX(-50%); bottom: 15px; width: max-content; text-align: center; }
 }
+/* Corrección del espacio en blanco al final de la página */
+body {
+    overflow-x: hidden; /* Evita scrolls laterales raros */
+    position: relative;
+}
+
+/* Evitamos que las hojas animadas estiren el alto total del sitio */
+.hoja {
+    position: fixed; /* Cambiado de absolute a fixed para que floten en la pantalla visible sin estirar el body */
+    top: -50px;
+    z-index: 999;
+    pointer-events: none; /* Hace que puedas hacer click "a través" de las hojas */
+}
+
+/* Forzar que el footer o último elemento cierre limpio */
+footer, .quiz-contenedor, #quiz-contenedor {
+    margin-bottom: 0 !important;
+    padding-bottom: 40px;
+}
