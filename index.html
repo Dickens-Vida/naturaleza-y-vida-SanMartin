@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Naturaleza y Vida | Expedición</title>
+<title>Naturaleza y Vida | Expedición</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,72 +22,122 @@
 
   <div class="links">
     <a href="#hero">Inicio</a>
-    <a href="#bienvenida">Info</a>
-    <a href="#naturaleza">Naturaleza</a>
+    <a href="#info">Info</a>
+    <a href="#flora">Flora</a>
+    <a href="#fauna">Fauna</a>
     <a href="#itinerario">Itinerario</a>
+    <a href="#mapa">Mapa</a>
   </div>
 </nav>
 
-<!-- HERO PARALLAX -->
+<!-- HERO -->
 <section id="hero" class="hero">
   <div class="hero-content">
-    <h1>Naturaleza y Vida</h1>
-    <p>Expedición educativa a San Martín de los Andes</p>
+    <h1>Expedición San Martín de los Andes</h1>
+    <p>Proyecto educativo de Naturaleza y Vida</p>
 
-    <a href="#bienvenida" class="btn">Comenzar</a>
+    <a href="#info" class="btn">Comenzar la expedición</a>
   </div>
 </section>
 
-<!-- BIENVENIDA -->
-<section id="bienvenida" class="section reveal">
-  <h2>Bienvenidos</h2>
-  <p>Proyecto educativo sobre nuestra expedición a San Martín de los Andes.</p>
+<!-- INFO -->
+<section id="info" class="section">
+  <h2>Sobre la expedición</h2>
+
+  <p>
+    Esta expedición educativa tiene como objetivo el contacto directo con el ambiente natural de San Martín de los Andes.
+    Se busca comprender la biodiversidad, la importancia de los ecosistemas y la conservación del entorno.
+  </p>
 </section>
 
-<!-- NATURALEZA -->
-<section id="naturaleza" class="section reveal">
-  <h2>Naturaleza</h2>
+<!-- FLORA -->
+<section id="flora" class="section">
+  <h2>Flora</h2>
 
   <div class="cards">
+
     <div class="card">
-      <h3>Árboles</h3>
-      <p>Importancia del ecosistema forestal.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Araucaria_araucana.jpg">
+      <h3>Araucaria</h3>
+      <p>Árbol emblemático de la Patagonia.</p>
     </div>
 
     <div class="card">
-      <h3>Fauna</h3>
-      <p>Animales de la región patagónica.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Lenga_forest.jpg">
+      <h3>Lenga</h3>
+      <p>Bosque nativo de zonas frías.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAUNA -->
+<section id="fauna" class="section">
+  <h2>Fauna</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Huemul.jpg">
+      <h3>Huemul</h3>
+      <p>Especie en peligro de extinción.</p>
     </div>
 
     <div class="card">
-      <h3>Ambientes</h3>
-      <p>Lagunas, bosques y montañas.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Condor_andino.jpg">
+      <h3>Cóndor Andino</h3>
+      <p>Uno de los grandes símbolos de la región.</p>
     </div>
+
   </div>
 </section>
 
 <!-- ITINERARIO -->
-<section id="itinerario" class="section reveal">
+<section id="itinerario" class="section">
   <h2>Itinerario</h2>
 
   <div class="timeline">
 
     <div class="item">
       <h3>Día 1</h3>
-      <p>Salida y llegada a San Martín de los Andes.</p>
+      <p>Salida y llegada al destino.</p>
     </div>
 
     <div class="item">
       <h3>Día 2</h3>
-      <p>Recorridos por senderos y reconocimiento del entorno.</p>
+      <p>Senderismo y reconocimiento del ambiente.</p>
     </div>
 
     <div class="item">
       <h3>Día 3</h3>
-      <p>Actividades educativas en la naturaleza.</p>
+      <p>Actividades de observación de fauna y flora.</p>
+    </div>
+
+    <div class="item">
+      <h3>Día 4</h3>
+      <p>Cierre y reflexión final del viaje.</p>
     </div>
 
   </div>
+
+  <div class="contador">
+    <h3>⏳ Días restantes</h3>
+    <p id="countdown"></p>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section id="mapa" class="section">
+  <h2>Mapa del recorrido</h2>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
+    width="100%"
+    height="400"
+    style="border:0;"
+    loading="lazy">
+  </iframe>
+
 </section>
 
 <script src="script.js"></script>
