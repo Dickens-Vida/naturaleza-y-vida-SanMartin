@@ -1943,3 +1943,44 @@ section {
 .actividades::after {
     display: none; /* Desactivamos el recorte recortado en esta sección para evitar solapamientos */
 }
+/* ==========================================================
+   PARCHE ENLACE DE IMÁGENES DE GALERÍA (FIX CORRECCIÓN DE CLASES)
+   ========================================================== */
+.foto.foto1 { background-image: url("assets/img/sanmartin.webp") !important; }
+.foto.foto2 { background-image: url("assets/img/huahum.webp") !important; }
+.foto.foto3 { background-image: url("assets/img/chachin.webp") !important; }
+.foto.foto4 { background-image: url("assets/img/queni.webp") !important; }
+.foto.foto5 { background-image: url("assets/img/mallo.webp") !important; }
+.foto.foto6 { background-image: url("assets/img/bahia.webp") !important; }
+
+/* Parche para las fotos de actividades por si alguna no tomó */
+.actividad-img.rapel { background-image: url("assets/img/rapel.webp") !important; }
+.actividad-img.trekking { background-image: url("assets/img/trekking.webp") !important; }
+.actividad-img.chachin { background-image: url("assets/img/chachin.webp") !important; }
+.actividad-img.bahia { background-image: url("assets/img/bahia.webp") !important; }
+.actividad-img.queni { background-image: url("assets/img/queni.webp") !important; }
+.actividad-img.termas { background-image: url("assets/img/termas.webp") !important; }
+.actividad-img.mallo { background-image: url("assets/img/mallo.webp") !important; }
+.actividad-img.guardaparques { background-image: url("assets/img/guardaparques.webp") !important; }
+
+/* ==========================================================
+   EVITAR QUE LAS SECCIONES SE ENCIMEN (CLIP-PATH OVERLAP FIX)
+   ========================================================== */
+section {
+    position: relative;
+    display: block;
+    clear: both;
+    margin-bottom: 0 !important;
+}
+
+/* Forzamos a las secciones críticas a tener fondo opaco para que 
+   los recortes decorativos del script anterior no transparenten la sección de abajo */
+.actividades {
+    background-color: #edf8f3 !important; 
+}
+
+.zona-interactiva {
+    background: linear-gradient(135deg, #1e2a1e 0%, #0f140f 100%) !important;
+    position: relative;
+    z-index: 5;
+}
