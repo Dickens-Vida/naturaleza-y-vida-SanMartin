@@ -34,3 +34,12 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 document.querySelectorAll(".section").forEach((el) => observer.observe(el));
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
