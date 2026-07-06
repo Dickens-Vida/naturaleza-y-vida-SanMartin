@@ -1944,43 +1944,37 @@ section {
     display: none; /* Desactivamos el recorte recortado en esta sección para evitar solapamientos */
 }
 /* ==========================================================
-   PARCHE ENLACE DE IMÁGENES DE GALERÍA (FIX CORRECCIÓN DE CLASES)
+   LINKS DIRECTOS DE INTERNET (Para que no falle por carpetas en GitHub)
    ========================================================== */
-.foto.foto1 { background-image: url("assets/img/sanmartin.webp") !important; }
-.foto.foto2 { background-image: url("assets/img/huahum.webp") !important; }
-.foto.foto3 { background-image: url("assets/img/chachin.webp") !important; }
-.foto.foto4 { background-image: url("assets/img/queni.webp") !important; }
-.foto.foto5 { background-image: url("assets/img/mallo.webp") !important; }
-.foto.foto6 { background-image: url("assets/img/bahia.webp") !important; }
+.foto.foto1 { background-image: url("https://images.unsplash.com/photo-1596122602742-cf6302e1c94d?q=80&w=600") !important; } /* San Martín */
+.foto.foto2 { background-image: url("https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600") !important; } /* Hua Hum */
+.foto.foto3 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600") !important; } /* Chachín */
+.foto.foto4 { background-image: url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=600") !important; } /* Queñi */
+.foto.foto5 { background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600") !important; } /* Cerro Mallo */
+.foto.foto6 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600") !important; } /* Bahía Elvira */
 
-/* Parche para las fotos de actividades por si alguna no tomó */
-.actividad-img.rapel { background-image: url("assets/img/rapel.webp") !important; }
-.actividad-img.trekking { background-image: url("assets/img/trekking.webp") !important; }
-.actividad-img.chachin { background-image: url("assets/img/chachin.webp") !important; }
-.actividad-img.bahia { background-image: url("assets/img/bahia.webp") !important; }
-.actividad-img.queni { background-image: url("assets/img/queni.webp") !important; }
-.actividad-img.termas { background-image: url("assets/img/termas.webp") !important; }
-.actividad-img.mallo { background-image: url("assets/img/mallo.webp") !important; }
-.actividad-img.guardaparques { background-image: url("assets/img/guardaparques.webp") !important; }
-
+/* Fotos de Actividades */
+.actividad-img.rapel { background-image: url("https://images.unsplash.com/photo-1563299887-3b85e93d8381?q=80&w=600") !important; }
+.actividad-img.trekking { background-image: url("https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=600") !important; }
+.actividad-img.chachin { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600") !important; }
+.actividad-img.bahia { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600") !important; }
+.actividad-img.queni { background-image: url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=600") !important; }
+.actividad-img.termas { background-image: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=600") !important; }
+.actividad-img.mallo { background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600") !important; }
+.actividad-img.guardaparques { background-image: url("https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=600") !important; }
 /* ==========================================================
-   EVITAR QUE LAS SECCIONES SE ENCIMEN (CLIP-PATH OVERLAP FIX)
+   ESPACIADO GENERAL (Para que respire el diseño)
    ========================================================== */
 section {
-    position: relative;
-    display: block;
-    clear: both;
-    margin-bottom: 0 !important;
+    padding: 120px 0 !important; /* Más espacio arriba y abajo de cada sección */
 }
 
-/* Forzamos a las secciones críticas a tener fondo opaco para que 
-   los recortes decorativos del script anterior no transparenten la sección de abajo */
-.actividades {
-    background-color: #edf8f3 !important; 
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.zona-interactiva {
-    background: linear-gradient(135deg, #1e2a1e 0%, #0f140f 100%) !important;
-    position: relative;
-    z-index: 5;
+/* Espacio extra para las tarjetas que se pegan */
+.actividad, .foto, .info-card, .desc-card {
+    margin-bottom: 15px;
 }
