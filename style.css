@@ -184,7 +184,6 @@ HERO
     text-align: center;
     overflow: hidden;
     color: white;
-    background: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200") center center/cover no-repeat !important;
 }
 .hero::before {
     content: "";
@@ -436,7 +435,7 @@ BITACORA / TIMELINE
 }
 
 /*==================================================
-ACTIVIDADES (REORGANIZADO SIN REPETICIÓN)
+ACTIVIDADES (CORREGIDO PARA USAR EL INLINE HTML)
 ==================================================*/
 .actividad {
     overflow: hidden;
@@ -444,21 +443,17 @@ ACTIVIDADES (REORGANIZADO SIN REPETICIÓN)
 }
 .actividad-img {
     height: 220px;
+    width: 100%;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    display: block;
 }
 .actividad-info {
     padding: 25px;
 }
 
-.actividad-img.rapel { background-image: url("https://images.unsplash.com/photo-1563299887-3b85e93d8381?q=80&w=600") !important; }
-.actividad-img.trekking { background-image: url("https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=600") !important; }
-.actividad-img.chachin { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600") !important; }
-.actividad-img.bahia { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600") !important; }
-.actividad-img.queni { background-image: url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=600") !important; }
-.actividad-img.termas { background-image: url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=600") !important; }
-.actividad-img.mallo { background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600") !important; }
-.actividad-img.guardaparques { background-image: url("https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=600") !important; }
+/* Eliminadas las reglas antiguas !important que bloqueaban los links del HTML */
 
 /*==================================================
 EQUIPO CATEGORÍAS
@@ -637,7 +632,7 @@ ZONA INTERACTIVA PREMIUM (JUEGO + QUIZ)
 .btn-reiniciar:hover { background: #b71c1c; }
 
 /*==================================================
-GALERÍA DE FOTOS
+GALERÍA DE FOTOS (CORREGIDO)
 ==================================================*/
 .galeria-grid {
     display: grid;
@@ -652,16 +647,12 @@ GALERÍA DE FOTOS
     position: relative;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     transition: .5s ease;
 }
 .foto:hover { transform: scale(1.02); }
 
-.foto.foto1 { background-image: url("https://images.unsplash.com/photo-1596122602742-cf6302e1c94d?q=80&w=600") !important; }
-.foto.foto2 { background-image: url("https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600") !important; }
-.foto.foto3 { background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600") !important; }
-.foto.foto4 { background-image: url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=600") !important; }
-.foto.foto5 { background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600") !important; }
-.foto.foto6 { background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600") !important; }
+/* Eliminadas las URLs viejas fijas con !important que bloqueaban tu galería */
 
 .overlay {
     position: absolute;
