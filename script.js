@@ -1,6 +1,6 @@
 
 // =======================
-// 1. REVEAL AL SCROLL
+// 1. ANIMACIÓN AL SCROLL (REVEAL)
 // =======================
 
 const sections = document.querySelectorAll(".section");
@@ -39,7 +39,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 // =======================
-// 3. NAVBAR ACTIVA
+// 3. NAVBAR ACTIVA (SECCIÓN ACTUAL)
 // =======================
 
 const navLinks = document.querySelectorAll(".navbar .links a");
@@ -68,7 +68,7 @@ window.addEventListener("scroll", () => {
 // 4. CONTADOR DE DÍAS
 // =======================
 
-// 👉 Cambiá esta fecha por la del viaje real
+// 👉 CAMBIÁ ESTA FECHA POR LA REAL DEL VIAJE
 const fechaViaje = new Date("2026-10-01");
 
 const countdown = document.getElementById("countdown");
@@ -80,9 +80,9 @@ function actualizarContador() {
   const dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
 
   if (dias > 0) {
-    countdown.textContent = `${dias} días restantes`;
+    countdown.textContent = `${dias} días restantes para la expedición`;
   } else {
-    countdown.textContent = "¡Ya comenzó la expedición!";
+    countdown.textContent = "¡La expedición ya comenzó!";
   }
 }
 
@@ -99,9 +99,9 @@ function createParticle() {
   const particle = document.createElement("span");
 
   particle.style.position = "absolute";
-  particle.style.width = "5px";
-  particle.style.height = "5px";
-  particle.style.background = "rgba(255,255,255,0.4)";
+  particle.style.width = "4px";
+  particle.style.height = "4px";
+  particle.style.background = "rgba(255,255,255,0.5)";
   particle.style.borderRadius = "50%";
 
   particle.style.left = Math.random() * 100 + "vw";
@@ -139,7 +139,7 @@ style.innerHTML = `
 
 .navbar .links a.active {
   color: #2ecc71;
-  font-weight: bold;
+  font-weight: 700;
 }
 `;
 
