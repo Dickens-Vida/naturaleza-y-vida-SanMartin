@@ -1829,3 +1829,51 @@ background-position:
 .btn-reiniciar:hover {
     background: #b71c1c;
 }
+/*==================================================
+ * CORRECCIONES DE SECCIONES UNIDAS Y SUPERPUESTAS
+ *==================================================*/
+
+/* Separar la sección de Actividades del contenido anterior */
+.actividades {
+    position: relative;
+    padding: 80px 0 !important;
+    margin-top: 50px;
+    clear: both; /* Evita que elementos flotantes previos se monten */
+    background: #151f15; /* Asegura un fondo sólido para que no se trasluzca lo de abajo */
+}
+
+/* Darle espacio interno al contenedor de las tarjetas */
+.cards-actividades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+/* Corregir la superposición en la Zona Interactiva (Mochila y Quiz) */
+.zona-interactiva {
+    position: relative;
+    display: block;
+    clear: both;
+    padding: 100px 0 !important;
+    margin-top: 60px;
+}
+
+/* Asegurar el espaciado de los bloques internos del juego */
+.juego-mochila-container, 
+.quiz-section-container {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: block;
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+/* Evitar que el contenedor general del sitio colapse las secciones */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
