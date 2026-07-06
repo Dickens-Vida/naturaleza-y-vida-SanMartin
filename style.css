@@ -403,3 +403,11 @@ html {
 body {
   padding-top: 90px;
 }
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #2ecc71;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+}
