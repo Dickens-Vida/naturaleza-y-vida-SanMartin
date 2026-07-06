@@ -1,50 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Naturaleza y Vida | Expedición</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+</head>
+
 <body>
 
-<!-- HERO -->
-<section class="hero">
+<!-- PARTÍCULAS -->
+<div class="particles"></div>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🌿 Naturaleza y Vida</div>
+
+  <div class="links">
+    <a href="#hero">Inicio</a>
+    <a href="#bienvenida">Info</a>
+    <a href="#naturaleza">Naturaleza</a>
+    <a href="#itinerario">Itinerario</a>
+  </div>
+</nav>
+
+<!-- HERO PARALLAX -->
+<section id="hero" class="hero">
   <div class="hero-content">
     <h1>Naturaleza y Vida</h1>
     <p>Expedición educativa a San Martín de los Andes</p>
 
-    <a href="#bienvenida" class="btn">Comenzar la expedición</a>
+    <a href="#bienvenida" class="btn">Comenzar</a>
   </div>
-
 </section>
 
 <!-- BIENVENIDA -->
-<section id="bienvenida" class="section">
+<section id="bienvenida" class="section reveal">
   <h2>Bienvenidos</h2>
-
-  <p>
-    Esta página es una infografía interactiva sobre nuestra expedición educativa.
-  </p>
+  <p>Proyecto educativo sobre nuestra expedición a San Martín de los Andes.</p>
 </section>
 
 <!-- NATURALEZA -->
-<section id="naturaleza" class="section">
-
+<section id="naturaleza" class="section reveal">
   <h2>Naturaleza</h2>
 
   <div class="cards">
-
     <div class="card">
       <h3>Árboles</h3>
-      <p>Importancia de los árboles en el ambiente.</p>
+      <p>Importancia del ecosistema forestal.</p>
     </div>
 
     <div class="card">
       <h3>Fauna</h3>
-      <p>Animales del ecosistema local.</p>
+      <p>Animales de la región patagónica.</p>
     </div>
 
     <div class="card">
-      <h3>Espacios verdes</h3>
-      <p>Parques y áreas naturales.</p>
+      <h3>Ambientes</h3>
+      <p>Lagunas, bosques y montañas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ITINERARIO -->
+<section id="itinerario" class="section reveal">
+  <h2>Itinerario</h2>
+
+  <div class="timeline">
+
+    <div class="item">
+      <h3>Día 1</h3>
+      <p>Salida y llegada a San Martín de los Andes.</p>
+    </div>
+
+    <div class="item">
+      <h3>Día 2</h3>
+      <p>Recorridos por senderos y reconocimiento del entorno.</p>
+    </div>
+
+    <div class="item">
+      <h3>Día 3</h3>
+      <p>Actividades educativas en la naturaleza.</p>
     </div>
 
   </div>
-
 </section>
 
+<script src="script.js"></script>
+
 </body>
+</html>
