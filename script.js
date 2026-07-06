@@ -15,20 +15,18 @@ const observer = new IntersectionObserver((entries) => {
   threshold: 0.15
 });
 
-sections.forEach(section => {
-  observer.observe(section);
-});
+sections.forEach(section => observer.observe(section));
 
 
 // =======================
-// 2. SMOOTH SCROLL (refuerzo)
+// 2. SMOOTH SCROLL
 // =======================
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function(e) {
+  link.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const target = document.querySelector(this.getAttribute("href"));
+    const target = document.querySelector(link.getAttribute("href"));
 
     if (target) {
       target.scrollIntoView({
@@ -41,7 +39,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 // =======================
-// 3. NAVBAR ACTIVA (highlight)
+// 3. NAVBAR ACTIVA
 // =======================
 
 const navLinks = document.querySelectorAll(".navbar .links a");
@@ -67,7 +65,32 @@ window.addEventListener("scroll", () => {
 
 
 // =======================
-// 4. PARTÍCULAS DINÁMICAS
+// 4. CONTADOR DE DÍAS
+// =======================
+
+// 👉 Cambiá esta fecha por la del viaje real
+const fechaViaje = new Date("2026-10-01");
+
+const countdown = document.getElementById("countdown");
+
+function actualizarContador() {
+  const ahora = new Date();
+  const diferencia = fechaViaje - ahora;
+
+  const dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
+
+  if (dias > 0) {
+    countdown.textContent = `${dias} días restantes`;
+  } else {
+    countdown.textContent = "¡Ya comenzó la expedición!";
+  }
+}
+
+actualizarContador();
+
+
+// =======================
+// 5. PARTÍCULAS DINÁMICAS
 // =======================
 
 const particlesContainer = document.querySelector(".particles");
@@ -76,8 +99,8 @@ function createParticle() {
   const particle = document.createElement("span");
 
   particle.style.position = "absolute";
-  particle.style.width = "6px";
-  particle.style.height = "6px";
+  particle.style.width = "5px";
+  particle.style.height = "5px";
   particle.style.background = "rgba(255,255,255,0.4)";
   particle.style.borderRadius = "50%";
 
@@ -93,11 +116,11 @@ function createParticle() {
   }, 12000);
 }
 
-setInterval(createParticle, 300);
+setInterval(createParticle, 250);
 
 
 // =======================
-// 5. ANIMACIÓN DE PARTÍCULAS (CSS INJECT)
+// 6. KEYFRAMES INJECTADOS
 // =======================
 
 const style = document.createElement("style");
