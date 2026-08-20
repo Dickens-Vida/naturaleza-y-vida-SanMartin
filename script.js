@@ -90,7 +90,7 @@ if (contadorElemento) {
     }, 1000);
 }
 
-// JUEGO DE LA MOCHILA (BOLSA DE DORMIR INCLUIDA COMO VALIDA)
+// JUEGO DE LA MOCHILA
 const elementosValidos = ["Bolsa de dormir", "Linterna frontal", "Botas de trekking", "Protector solar", "Cantimplora"];
 const contenedorMochila = document.querySelector(".mochila");
 
