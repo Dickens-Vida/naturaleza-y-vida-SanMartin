@@ -61,9 +61,11 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// INTERACCIÓN POP-IT DE LAS CARTAS
+// INTERACCIÓN POP-IT DE LAS CARTAS (SOPORTE PARA SCROLL INTERNO)
 document.querySelectorAll(".carta-pop").forEach(carta => {
-    carta.addEventListener("click", () => {
+    carta.addEventListener("click", (e) => {
+        // Evita cerrar la carta si se hace scroll o click dentro del cuadro de texto interno
+        if (e.target.closest('.carta-contenido')) return;
         carta.classList.toggle("open");
     });
 });
