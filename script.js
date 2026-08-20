@@ -1,5 +1,5 @@
 /* ==========================================================
-   LÓGICA JAVASCRIPT - ESPECIALIZACIÓN Y EXPEDICIÓN
+   LÓGICA JAVASCRIPT - EXPEDICIÓN Y PRÁCTICAS LUDOMOTRICES
    ========================================================== */
 
 window.addEventListener("load", () => {
