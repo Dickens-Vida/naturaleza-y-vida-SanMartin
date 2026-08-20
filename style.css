@@ -342,7 +342,7 @@ h2 {
 .contenido h3 { color: var(--verde); margin-bottom: 8px; }
 .contenido ul { padding-left: 20px; }
 
-/* ACTIVIDADES */
+/* ACTIVIDADES CON EFECTO ZOOM */
 .actividades { background: #f2f7f4; }
 .cards-actividades {
     display: grid;
@@ -354,10 +354,29 @@ h2 {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    cursor: pointer;
 }
+
+/* CONTENEDOR MÁSCARA E IMAGEN CON ZOOM INMERSIVO */
 .actividad-img {
-    height: 180px;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
+
+.actividad-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-out;
+}
+
+.actividad:hover .actividad-img img,
+.actividad:active .actividad-img img {
+    transform: scale(1.15);
+}
+
 .actividad-info {
     padding: 20px;
 }
