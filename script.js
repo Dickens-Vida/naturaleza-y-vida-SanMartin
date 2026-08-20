@@ -147,3 +147,53 @@ nodosFaq.forEach(nodo => {
     nodo.addEventListener("mouseenter", activar);
     nodo.addEventListener("click", activar);
 });
+// ==========================================================
+// DETECTOR Y CARGADOR AUTOMÁTICO DE IMÁGENES
+// ==========================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const imagenes = document.querySelectorAll("img");
+
+    imagenes.forEach((img) => {
+        const rutaOriginal = img.getAttribute("src");
+        if (!rutaOriginal) return;
+
+        // Extraer la ruta base sin extensión y la extensión actual
+        const puntoPos = rutaOriginal.lastIndexOf(".");
+        if (puntoPos === -1) return;
+
+        const baseRuta = rutaOriginal.substring(0, puntoPos); // Ej: IMAGENES/actividades/rapel
+        const extensionOriginal = rutaOriginal.substring(puntoPos); // Ej: .jpg
+
+        // Lista de posibles nombres y extensiones a probar si la original falla
+        const variantes = [
+            baseRuta + extensionOriginal,
+            baseRuta + ".jpg",
+            baseRuta + ".JPG",
+            baseRuta + ".jpeg",
+            baseRuta + ".png",
+            baseRuta + ".PNG",
+            baseRuta + ".webp",
+            // Probamos agregando/quitando doble 'p' para rapel/rappel
+            baseRuta.replace("rapel", "rappel") + ".jpg",
+            baseRuta.replace("rapel", "rappel") + ".JPG",
+            baseRuta.replace("rapel", "rappel") + ".png",
+            baseRuta.replace("rappel", "rapel") + ".jpg",
+            baseRuta.replace("rappel", "rapel") + ".png"
+        ];
+
+        let intentoActual = 0;
+
+        img.onerror = function () {
+            intentoActual++;
+            if (intentoActual < variantes.length) {
+                // Intenta con la siguiente variante de nombre/extensión
+                img.src = variantes[intentoActual];
+            } else {
+                // Si ninguna funciona, muestra una imagen o color de respaldo
+                console.warn(`No se pudo encontrar la imagen para: ${rutaOriginal}`);
+                img.alt = "Imagen no encontrada (" + rutaOriginal + ")";
+            }
+        };
+    });
+});
