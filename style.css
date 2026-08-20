@@ -164,7 +164,7 @@ body {
 }
 
 /* ==========================================================
-   TRANSICIÓN DE SCROLL Y CARTAS POP-IT
+   TRANSICIÓN DE SCROLL Y CARTAS POP-IT (AULA ENHANCED)
    ========================================================== */
 .seccion-mision-scroll {
     position: relative;
@@ -242,21 +242,39 @@ body {
     display: block;
     margin-top: 8px;
 }
+
+/* AJUSTE AULA: LETRA MÁS GRANDE Y CONTENEDOR CON SCROLL SUAVE */
 .carta-contenido {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease, margin-top 0.4s ease;
 }
-.carta-contenido p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-}
 .carta-pop.open .carta-contenido {
-    max-height: 160px;
+    max-height: 180px;
+    overflow-y: auto;
     margin-top: 12px;
     border-top: 1px dashed var(--verde3);
-    padding-top: 10px;
+    padding: 12px 8px 5px 5px;
 }
+.carta-contenido p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #f1efe7;
+    text-align: center;
+}
+
+/* Personalización de la barra de desplazamiento del cuadro */
+.carta-contenido::-webkit-scrollbar {
+    width: 6px;
+}
+.carta-contenido::-webkit-scrollbar-thumb {
+    background: var(--verde3);
+    border-radius: 10px;
+}
+.carta-contenido::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .carta-pop.open {
     background: #2d5440;
 }
