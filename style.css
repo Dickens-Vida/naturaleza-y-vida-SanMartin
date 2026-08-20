@@ -247,8 +247,12 @@ body {
     overflow: hidden;
     transition: max-height 0.4s ease, margin-top 0.4s ease;
 }
+.carta-contenido p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
 .carta-pop.open .carta-contenido {
-    max-height: 120px;
+    max-height: 160px;
     margin-top: 12px;
     border-top: 1px dashed var(--verde3);
     padding-top: 10px;
@@ -308,7 +312,8 @@ h2 {
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    text-align: center;
 }
 .contenido {
     background: white;
