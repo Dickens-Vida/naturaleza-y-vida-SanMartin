@@ -243,7 +243,6 @@ body {
     margin-top: 8px;
 }
 
-/* AJUSTE AULA: LETRA MÁS GRANDE Y CONTENEDOR CON SCROLL SUAVE */
 .carta-contenido {
     max-height: 0;
     overflow: hidden;
@@ -263,7 +262,6 @@ body {
     text-align: center;
 }
 
-/* Personalización de la barra de desplazamiento del cuadro */
 .carta-contenido::-webkit-scrollbar {
     width: 6px;
 }
@@ -357,7 +355,6 @@ h2 {
     cursor: pointer;
 }
 
-/* CONTENEDOR MÁSCARA E IMAGEN CON ZOOM INMERSIVO */
 .actividad-img {
     height: 200px;
     width: 100%;
@@ -437,22 +434,39 @@ h2 {
 .mochila-icono { font-size: 60px; }
 
 /* ==========================================================
-   NUEVO EXAMEN DE SUPERVIVENCIA - TARJETAS Y PASAPORTE
+   HUD Y TARJETAS DEL EXAMEN DE SUPERVIVENCIA - PASAPORTE AL BOSQUE
    ========================================================== */
 .quiz-section-container {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
     padding: 10px;
 }
 
+/* HUD Cuadro Marco */
+.quiz-hud-wrapper {
+    background: rgba(15, 32, 24, 0.85);
+    border: 3px double var(--verde3);
+    border-radius: 28px;
+    padding: 30px 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 15px rgba(116, 198, 157, 0.15);
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta / Sobre interactivo que spawnea */
 .card-quiz {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
+    width: 100%;
+    max-width: 620px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
     border: 2px solid var(--verde3);
-    border-radius: 24px;
-    padding: 35px 25px;
+    border-radius: 20px;
+    padding: 30px 22px;
     text-align: center;
     box-shadow: var(--sombra);
     transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s ease, background-color 0.3s ease;
@@ -481,7 +495,7 @@ h2 {
 .card-quiz.error-shake {
     animation: shakeError 0.5s ease-in-out;
     border-color: #ff4d4d !important;
-    background: rgba(255, 77, 77, 0.2) !important;
+    background: rgba(255, 77, 77, 0.25) !important;
 }
 
 @keyframes shakeError {
@@ -500,7 +514,7 @@ h2 {
 }
 
 .quiz-pregunta {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     color: #ffffff;
     margin-bottom: 25px;
     font-weight: 700;
@@ -510,16 +524,16 @@ h2 {
 .quiz-opciones {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
 .btn-opcion {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
     color: var(--bosque);
     border: none;
-    padding: 16px 20px;
+    padding: 15px 18px;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -535,9 +549,11 @@ h2 {
 
 /* CREDENCIAL PASAPORTE AL BOSQUE */
 .pasaporte-card {
+    width: 100%;
+    max-width: 620px;
     background: #fdfbf7;
     color: var(--texto);
-    border-radius: 24px;
+    border-radius: 20px;
     padding: 35px 25px;
     text-align: center;
     border: 4px double var(--verde);
@@ -552,21 +568,21 @@ h2 {
 }
 
 .pasaporte-header h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--bosque);
     font-weight: 900;
 }
 
 .pasaporte-badge {
-    font-size: 4rem;
-    margin: 15px 0;
+    font-size: 3.8rem;
+    margin: 10px 0;
 }
 
 .pasaporte-status {
     display: inline-block;
     background: var(--verde);
     color: white;
-    padding: 8px 20px;
+    padding: 8px 22px;
     border-radius: 30px;
     font-weight: 800;
     letter-spacing: 1px;
