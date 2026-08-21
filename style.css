@@ -163,9 +163,7 @@ body {
     50% { transform: translate(-50%, 10px); }
 }
 
-/* ==========================================================
-   TRANSICIÓN DE SCROLL Y CARTAS POP-IT
-   ========================================================== */
+/* TRANSICIÓN DE SCROLL Y CARTAS POP-IT */
 .seccion-mision-scroll {
     position: relative;
     min-height: 250vh;
@@ -340,7 +338,9 @@ h2 {
 .contenido h3 { color: var(--verde); margin-bottom: 8px; }
 .contenido ul { padding-left: 20px; }
 
-/* ACTIVIDADES CON EFECTO ZOOM FLUIDO AL PASAR EL MOUSE */
+/* ==========================================================
+   SECCIÓN ACTIVIDADES - RUTA Y ZOOM CORREGIDOS
+   ========================================================== */
 .actividades { 
     background: #f2f7f4; 
 }
@@ -370,6 +370,15 @@ h2 {
     width: 100%;
     overflow: hidden;
     position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+/* ZOOM EN HOVER DE LA IMAGEN */
+.actividad:hover .actividad-img {
+    transform: scale(1.15);
 }
 
 .actividad-img img {
@@ -380,9 +389,29 @@ h2 {
     will-change: transform;
 }
 
-.actividad:hover .actividad-img img,
-.actividad:active .actividad-img img {
-    transform: scale(1.18);
+.actividad:hover .actividad-img img {
+    transform: scale(1.15);
+}
+
+/* CARGA INDIVIDUAL DE IMÁGENES DE CARPETA "imagenes actividades" */
+.actividad-1 .actividad-img,
+.actividad:nth-child(1) .actividad-img {
+    background-image: url('imagenes actividades/trekking.jpg');
+}
+
+.actividad-2 .actividad-img,
+.actividad:nth-child(2) .actividad-img {
+    background-image: url('imagenes actividades/kayak.jpg');
+}
+
+.actividad-3 .actividad-img,
+.actividad:nth-child(3) .actividad-img {
+    background-image: url('imagenes actividades/campamento.jpg');
+}
+
+.actividad-4 .actividad-img,
+.actividad:nth-child(4) .actividad-img {
+    background-image: url('imagenes actividades/talleres.jpg');
 }
 
 .actividad-info {
