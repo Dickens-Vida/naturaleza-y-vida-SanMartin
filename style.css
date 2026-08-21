@@ -164,7 +164,7 @@ body {
 }
 
 /* ==========================================================
-   TRANSICIÓN DE SCROLL Y CARTAS POP-IT (AULA ENHANCED)
+   TRANSICIÓN DE SCROLL Y CARTAS POP-IT
    ========================================================== */
 .seccion-mision-scroll {
     position: relative;
@@ -340,19 +340,29 @@ h2 {
 .contenido h3 { color: var(--verde); margin-bottom: 8px; }
 .contenido ul { padding-left: 20px; }
 
-/* ACTIVIDADES CON EFECTO ZOOM */
-.actividades { background: #f2f7f4; }
+/* ACTIVIDADES CON EFECTO ZOOM FLUIDO AL PASAR EL MOUSE */
+.actividades { 
+    background: #f2f7f4; 
+}
+
 .cards-actividades {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
 }
+
 .actividad {
     background: white;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.actividad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
 .actividad-img {
@@ -366,12 +376,13 @@ h2 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease-out;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
 }
 
 .actividad:hover .actividad-img img,
 .actividad:active .actividad-img img {
-    transform: scale(1.15);
+    transform: scale(1.18);
 }
 
 .actividad-info {
@@ -433,9 +444,7 @@ h2 {
 }
 .mochila-icono { font-size: 60px; }
 
-/* ==========================================================
-   HUD Y TARJETAS DEL EXAMEN DE SUPERVIVENCIA - PASAPORTE AL BOSQUE
-   ========================================================== */
+/* HUD Y TARJETAS DEL EXAMEN DE SUPERVIVENCIA */
 .quiz-section-container {
     max-width: 720px;
     margin: 0 auto;
@@ -443,7 +452,6 @@ h2 {
     padding: 10px;
 }
 
-/* HUD Cuadro Marco */
 .quiz-hud-wrapper {
     background: rgba(15, 32, 24, 0.85);
     border: 3px double var(--verde3);
@@ -458,7 +466,6 @@ h2 {
     justify-content: center;
 }
 
-/* Tarjeta / Sobre interactivo que spawnea */
 .card-quiz {
     width: 100%;
     max-width: 620px;
@@ -547,7 +554,6 @@ h2 {
     box-shadow: 0 8px 20px rgba(116, 198, 157, 0.3);
 }
 
-/* CREDENCIAL PASAPORTE AL BOSQUE */
 .pasaporte-card {
     width: 100%;
     max-width: 620px;
@@ -604,7 +610,7 @@ h2 {
     background: var(--verde2);
 }
 
-/* FAQ INTERACTIVO STRUCTURED */
+/* FAQ INTERACTIVO */
 .faq-interactivo { background: white; }
 .faq-layout {
     display: grid;
