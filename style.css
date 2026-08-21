@@ -436,6 +436,158 @@ h2 {
 }
 .mochila-icono { font-size: 60px; }
 
+/* ==========================================================
+   NUEVO EXAMEN DE SUPERVIVENCIA - TARJETAS Y PASAPORTE
+   ========================================================== */
+.quiz-section-container {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.card-quiz {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--verde3);
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: var(--sombra);
+    transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card-quiz.slide-out-left {
+    transform: translateX(-120%) scale(0.8);
+    opacity: 0;
+}
+
+.card-quiz.slide-in-right {
+    animation: slideInFromRight 0.4s forwards;
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(120%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.card-quiz.error-shake {
+    animation: shakeError 0.5s ease-in-out;
+    border-color: #ff4d4d !important;
+    background: rgba(255, 77, 77, 0.2) !important;
+}
+
+@keyframes shakeError {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-15px); }
+    40%, 80% { transform: translateX(15px); }
+}
+
+.quiz-header-step {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--verde3);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.quiz-pregunta {
+    font-size: 1.35rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.quiz-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.btn-opcion {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--bosque);
+    border: none;
+    padding: 16px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.btn-opcion:hover {
+    background: var(--verde3);
+    color: var(--bosque);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(116, 198, 157, 0.3);
+}
+
+/* CREDENCIAL PASAPORTE AL BOSQUE */
+.pasaporte-card {
+    background: #fdfbf7;
+    color: var(--texto);
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: center;
+    border: 4px double var(--verde);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: fadeIn 0.6s ease;
+}
+
+.pasaporte-header {
+    border-bottom: 2px dashed var(--verde);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.pasaporte-header h3 {
+    font-size: 1.5rem;
+    color: var(--bosque);
+    font-weight: 900;
+}
+
+.pasaporte-badge {
+    font-size: 4rem;
+    margin: 15px 0;
+}
+
+.pasaporte-status {
+    display: inline-block;
+    background: var(--verde);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 15px 0;
+}
+
+.btn-reiniciar {
+    margin-top: 20px;
+    background: var(--bosque);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-reiniciar:hover {
+    background: var(--verde2);
+}
+
 /* FAQ INTERACTIVO STRUCTURED */
 .faq-interactivo { background: white; }
 .faq-layout {
