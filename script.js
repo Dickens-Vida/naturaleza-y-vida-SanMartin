@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. OCULTAR LOADER AL CARGAR LA PÁGINA
+    // 1. OCULTAR LOADER
     const loader = document.getElementById('loader');
     if (loader) {
         setTimeout(() => {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // 2. NAVBAR CON EFECTO DE SCROLL
+    // 2. NAVBAR SCROLL
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 80) {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. CONTADOR REGRESIVO A LA FECHA DE SALIDA
+    // 3. CONTADOR REGRESIVO
     const contador = document.getElementById('contador');
     const fechaSalida = new Date('September 29, 2026 10:00:00').getTime();
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(actualizarContador, 1000);
     actualizarContador();
 
-    // 4. TRANSICIÓN DE SCROLL Y CARTAS POP-IT EN LA SECCIÓN MISIÓN
+    // 4. TRANSICIÓN MISIÓN + POP-IT
     const seccionScroll = document.querySelector('.seccion-mision-scroll');
     const cartas = document.querySelectorAll('.carta-pop');
     const textoMision = document.querySelector('.mision-texto-centrado');
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const altoSeccion = seccionScroll.offsetHeight - window.innerHeight;
         const progreso = Math.min(Math.max(-rect.top / altoSeccion, 0), 1);
 
-        // Transición de fondo de oscuro a claro
         const r = Math.round(12 + (241 - 12) * progreso);
         const g = Math.round(24 + (239 - 24) * progreso);
         const b = Math.round(19 + (231 - 19) * progreso);
@@ -70,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
             textoMision.style.color = '#ffffff';
         }
 
-        // Aparecer cartas pop-it progresivamente
         cartas.forEach((carta, idx) => {
             const umbral = (idx + 1) * 0.2;
             if (progreso >= umbral) {
@@ -81,14 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Abrir/Cerrar cartas al hacer clic
     cartas.forEach(carta => {
         carta.addEventListener('click', () => {
             carta.classList.toggle('open');
         });
     });
 
-    // 5. INTERACCIÓN DEL JUEGO DE LA MOCHILA (Click + Drag & Drop)
+    // 5. JUEGO DE LA MOCHILA
     const objetos = document.querySelectorAll('.objeto');
     const statusMochila = document.getElementById('mochila-status');
     const zonaMochila = document.querySelector('.mochila');
@@ -109,11 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Eventos Click
     objetos.forEach(obj => {
         obj.addEventListener('click', () => agregarElementoAMochila(obj));
 
-        // Eventos Drag & Drop
         obj.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('text/plain', e.target.innerText);
             e.target.classList.add('dragging');
@@ -133,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. EXAMEN DE SUPERVIVENCIA INTERACTIVO (PASAPORTE AL BOSQUE)
+    // 6. EXAMEN DE SUPERVIVENCIA INTERACTIVO
     const preguntasQuiz = [
         {
             pregunta: "¿Cuál es el sistema primario de comunicación en Hua Hum ante la falta de señal celular?",
@@ -245,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderizarPregunta();
 
-    // 7. SECCIÓN FAQ INTERACTIVA (CLICK Y HOVER)
+    // 7. SECCIÓN FAQ
     const puntosNodo = document.querySelectorAll('.punto-nodo');
     const cuadrosPanel = document.querySelectorAll('.cuadro-panel');
 
