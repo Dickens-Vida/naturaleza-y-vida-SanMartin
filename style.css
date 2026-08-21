@@ -121,7 +121,7 @@ h1, h2, h3, h4 {
 .hero-section {
     position: relative;
     height: 100vh;
-    background: url('IMAGENES/hero/portada.jpg') center/cover no-repeat;
+    background: url('./imagenes/hero/portada.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,7 +133,7 @@ h1, h2, h3, h4 {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
@@ -263,7 +263,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================
-   5. BITÁCORA / TIMELINE
+   5. BITÁCORA / TIMELINE (9 DÍAS)
    ========================================================== */
 .seccion-bitacora {
     padding: 80px 20px;
@@ -380,7 +380,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================
-   7. ZONA INTERACTIVA (MOCHILA + EXAMEN HUD)
+   7. ZONA INTERACTIVA
    ========================================================== */
 .seccion-interactiva {
     padding: 80px 20px;
@@ -459,7 +459,7 @@ h1, h2, h3, h4 {
     margin-bottom: 10px;
 }
 
-/* HUD Y TARJETAS DEL EXAMEN DE SUPERVIVENCIA */
+/* QUIZ SUPERVIVENCIA */
 .quiz-section-container {
     display: flex;
     justify-content: center;
@@ -531,18 +531,9 @@ h1, h2, h3, h4 {
     border-color: var(--verde-pino);
 }
 
-/* ANIMACIONES QUIZ */
-.slide-in-right {
-    animation: slideInRight 0.4s ease forwards;
-}
-
-.slide-out-left {
-    animation: slideOutLeft 0.4s ease forwards;
-}
-
-.error-shake {
-    animation: shake 0.4s ease forwards;
-}
+.slide-in-right { animation: slideInRight 0.4s ease forwards; }
+.slide-out-left { animation: slideOutLeft 0.4s ease forwards; }
+.error-shake { animation: shake 0.4s ease forwards; }
 
 @keyframes slideInRight {
     from { opacity: 0; transform: translateX(50px); }
@@ -560,7 +551,6 @@ h1, h2, h3, h4 {
     40%, 80% { transform: translateX(10px); }
 }
 
-/* PASAPORTE FINAL */
 .pasaporte-card {
     background-color: var(--blanco);
     color: var(--oscuro-texto);
@@ -570,10 +560,7 @@ h1, h2, h3, h4 {
     border: 3px double var(--verde-pino);
 }
 
-.pasaporte-badge {
-    font-size: 2.5rem;
-    margin: 10px 0;
-}
+.pasaporte-badge { font-size: 2.5rem; margin: 10px 0; }
 
 .pasaporte-status {
     display: inline-block;
@@ -646,18 +633,9 @@ h1, h2, h3, h4 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.cuadro-panel {
-    display: none;
-}
-
-.cuadro-panel.active {
-    display: block;
-}
-
-.cuadro-panel h3 {
-    color: var(--verde-bosque);
-    margin-bottom: 10px;
-}
+.cuadro-panel { display: none; }
+.cuadro-panel.active { display: block; }
+.cuadro-panel h3 { color: var(--verde-bosque); margin-bottom: 10px; }
 
 /* ==========================================================
    9. FOOTER
@@ -671,7 +649,6 @@ footer {
     opacity: 0.9;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .dashboard-juego { grid-template-columns: 1fr; }
     .faq-container { grid-template-columns: 1fr; }
