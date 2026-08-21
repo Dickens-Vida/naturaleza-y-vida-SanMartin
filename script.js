@@ -51,21 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const altoSeccion = seccionScroll.offsetHeight - window.innerHeight;
         const progreso = Math.min(Math.max(-rect.top / altoSeccion, 0), 1);
 
-        // Interpolación de color de fondo (#0c1813 a #f1efe7)
         const r = Math.round(12 + (241 - 12) * progreso);
         const g = Math.round(24 + (239 - 24) * progreso);
         const b = Math.round(19 + (231 - 19) * progreso);
 
         seccionScroll.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 
-        // Cambio progresivo de color de texto
         if (progreso > 0.6) {
             textoMision.style.color = '#1b4332';
         } else {
             textoMision.style.color = '#ffffff';
         }
 
-        // Desbloqueo progresivo de cartas según el scroll
         cartas.forEach((carta, idx) => {
             const umbral = (idx + 1) * 0.2;
             if (progreso >= umbral) {
@@ -76,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Abrir/Cerrar Cartas Pop-it
     cartas.forEach(carta => {
         carta.addEventListener('click', () => {
             carta.classList.toggle('open');
@@ -85,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. MINIJUEGO DE LA MOCHILA
     const objetos = document.querySelectorAll('.objeto');
-    const mochila = document.querySelector('.mochila');
     const statusMochila = document.getElementById('mochila-status');
     let cargados = 0;
 
@@ -176,14 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = preguntasQuiz[indicePregunta];
 
         if (seleccion === q.correcta) {
-            // Animación de salida airosa hacia la izquierda
             card.classList.add('slide-out-left');
             setTimeout(() => {
                 indicePregunta++;
                 renderizarPregunta();
             }, 400);
         } else {
-            // Animación de error y reinicio del test
             card.classList.add('error-shake');
             setTimeout(() => {
                 alert("❌ Respuesta incorrecta. Un error en la montaña pone en riesgo a la patrulla. Volvés a iniciar la acreditación.");
@@ -216,10 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicializar Quiz
     renderizarPregunta();
 
-    // 7. FAQ INTERACTIVO (CLICK / HOVER)
+    // 7. FAQ INTERACTIVO
     const puntosNodo = document.querySelectorAll('.punto-nodo');
     const cuadrosPanel = document.querySelectorAll('.cuadro-panel');
 
