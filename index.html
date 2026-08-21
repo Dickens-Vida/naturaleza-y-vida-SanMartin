@@ -5,260 +5,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prácticas Ludomotrices en el Ámbito Natural - ISEF Nº2</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- LOADER -->
     <div id="loader">
-        <h2>Cargando Experiencia...</h2>
+        <div class="spinner"></div>
+        <p>Cargando expedición...</p>
     </div>
-
-    <!-- CONTADOR -->
-    <div id="contador">Cargando fecha...</div>
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="logo">ISEF Nº2 DICKENS</div>
-        <div class="menu">
-            <a href="#mision">Misión</a>
-            <a href="#bitacora">Bitácora</a>
-            <a href="#actividades">Actividades</a>
-            <a href="#juego">Mochila</a>
-            <a href="#examen">Acreditación</a>
-            <a href="#faq">Preguntas</a>
+        <div class="nav-container">
+            <span class="logo">ISEF Nº2 | Hua Hum 2026</span>
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#mision">Misión</a></li>
+                <li><a href="#bitacora">Bitácora</a></li>
+                <li><a href="#galeria">Experiencias</a></li>
+                <li><a href="#interactivo">Desafío</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- HERO -->
-    <header class="hero">
+    <header id="hero" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="instituto">ISEF Nº2 Federico Dickens</p>
-            <h1>Prácticas Ludomotrices <span>en el Ámbito Natural</span></h1>
-            <p class="subtitulo-materia">EXPEDICIÓN EDUCATIVA HUA HUM & LAGO QUEÑI</p>
-            <div class="hero-fechas">
-                <span class="fecha-badge">San Martín de los Andes — Patagonia Argentina</span>
-            </div>
-            <a href="#mision" class="btnHero">Explorar Travesía</a>
+            <h1>PRÁCTICAS LUDOMOTRICES EN EL ÁMBITO NATURAL</h1>
+            <h2>San Martín de los Andes — Expedición Hua Hum</h2>
+            <p class="hero-subtext">ISEF Nº2 Federico Dickens — Formación Docente en la Naturaleza</p>
+            <div id="contador" class="contador-box">Cargando contador...</div>
+            <a href="#mision" class="btn-hero">Iniciar Travesía</a>
         </div>
-        <div class="scroll">↓</div>
     </header>
 
-    <!-- SECCIÓN SCROLL PARALLAX / CARTAS POP-IT -->
-    <section class="seccion-mision-scroll" id="mision">
-        <div class="sticky-wrapper">
-            <div class="mision-texto-centrado">
-                <h2>Propósito de la Experiencia</h2>
-                <p>Formación integral en conducción de grupos, seguridad en entornos agrestes y vida en la naturaleza.</p>
-            </div>
-
-            <div class="cartas-pop-container">
-                <div class="carta-pop">
-                    <div class="carta-sobre">
-                        <span class="icono-exclamacion">🌲</span>
-                        <h3>01</h3>
-                        <p>Autonomía</p>
-                        <span class="pista-click">Toca para abrir</span>
-                    </div>
-                    <div class="carta-contenido">
-                        <p>Gestión de recursos, campamentismo y toma de decisiones en grupo.</p>
-                    </div>
-                </div>
-
-                <div class="carta-pop">
-                    <div class="carta-sobre">
-                        <span class="icono-exclamacion">🏔️</span>
-                        <h3>02</h3>
-                        <p>Seguridad</p>
-                        <span class="pista-click">Toca para abrir</span>
-                    </div>
-                    <div class="carta-contenido">
-                        <p>Protocolos de emergencia, lectura del terreno y comunicación VHF.</p>
-                    </div>
-                </div>
-
-                <div class="carta-pop">
-                    <div class="carta-sobre">
-                        <span class="icono-exclamacion">🛶</span>
-                        <h3>03</h3>
-                        <p>Ludomotricidad</p>
-                        <span class="pista-click">Toca para abrir</span>
-                    </div>
-                    <div class="carta-contenido">
-                        <p>Diseño de juegos, dinámicas integradoras y vivencia comunitaria.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BITÁCORA -->
-    <section class="bitacora" id="bitacora">
-        <div class="container">
-            <h2>Bitácora de Viaje</h2>
-            <p class="subtitulo">Cronograma de actividades durante la expedición.</p>
-            <div class="timeline">
-                <div class="dia">
-                    <div class="fecha">DÍA 1</div>
-                    <div class="contenido">
-                        <h3>Arribo y Armado de Campamento</h3>
-                        <ul>
-                            <li>Llegada a San Martín de los Andes y traslado a Hua Hum.</li>
-                            <li>Emplazamiento de carpas y organización de sectores comunes.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dia">
-                    <div class="fecha">DÍA 2</div>
-                    <div class="contenido">
-                        <h3>Ascenso al Cerro Mallo</h3>
-                        <ul>
-                            <li>Trekking técnico con aplicación de ritmos de marcha.</li>
-                            <li>Práctica de orientación en bosque andino patagónico.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dia">
-                    <div class="fecha">DÍA 3</div>
-                    <div class="contenido">
-                        <h3>Travesía Lago Queñi y Termas</h3>
-                        <ul>
-                            <li>Navegación y marcha hacia la zona agreste de Queñi.</li>
-                            <li>Talleres didácticos y dinámicas ludomotrices grupales.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN ACTIVIDADES (CON RUTAS A "imagenes actividades/") -->
-    <section class="actividades" id="actividades">
-        <div class="container">
-            <h2>Experiencias e Itinerario</h2>
-            <p class="subtitulo">Prácticas formativas en el entorno natural de la Patagonia.</p>
+    <!-- MISIÓN (SCROLL ANIMADO) -->
+    <section id="mision" class="seccion-mision-scroll">
+        <div class="contenedor-mision">
+            <h2 class="mision-texto-centrado">Nuestra Misión Educativa</h2>
+            <p class="mision-subtitulo">Haz clic en cada pilar para descubrir nuestra propuesta pedagógica:</p>
             
-            <div class="cards-actividades">
-                
-                <div class="actividad">
-                    <div class="actividad-img">
-                        <img src="imagenes actividades/trekking.jpg" alt="Trekking Cerro Mallo">
-                    </div>
-                    <div class="actividad-info">
-                        <h3>Trekking y Ascenso</h3>
-                        <p>Caminatas de baja y media dificultad por senderos del Parque Nacional Lanín.</p>
-                    </div>
+            <div class="cartas-grid">
+                <div class="carta-pop">
+                    <div class="carta-frente">🌲 <h3>Autonomía</h3></div>
+                    <div class="carta-dorso"><p>Fomentar la toma de decisiones responsables en entornos de montaña y convivencia agreste.</p></div>
                 </div>
-
-                <div class="actividad">
-                    <div class="actividad-img">
-                        <img src="imagenes actividades/kayak.jpg" alt="Navegación y Kayak">
-                    </div>
-                    <div class="actividad-info">
-                        <h3>Navegación y Kayak</h3>
-                        <p>Travesías acuáticas y dinámicas ludomotrices en el Lago Nonthué y Lago Queñi.</p>
-                    </div>
+                <div class="carta-pop">
+                    <div class="carta-frente">🤝 <h3>Trabajo en Equipo</h3></div>
+                    <div class="carta-dorso"><p>Fortalecer la cooperación, el cuidado mutuo y la resolución colectiva de problemas en el medio natural.</p></div>
                 </div>
-
-                <div class="actividad">
-                    <div class="actividad-img">
-                        <img src="imagenes actividades/campamento.jpg" alt="Vida de Campamento">
-                    </div>
-                    <div class="actividad-info">
-                        <h3>Vida de Campamento</h3>
-                        <p>Organización agreste, armado de carpas, cocina al aire libre y fogones.</p>
-                    </div>
+                <div class="carta-pop">
+                    <div class="carta-frente">🎒 <h3>Sustentabilidad</h3></div>
+                    <div class="carta-dorso"><p>Aplicar técnicas de "No Deje Rastro" respetando el ecosistema del Parque Nacional Lanín.</p></div>
                 </div>
-
-                <div class="actividad">
-                    <div class="actividad-img">
-                        <img src="imagenes actividades/talleres.jpg" alt="Talleres Educativos">
-                    </div>
-                    <div class="actividad-info">
-                        <h3>Talleres y Didáctica</h3>
-                        <p>Planificación de juegos, orientación con brújula y gestión de grupos en la naturaleza.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- JUEGO DE LA MOCHILA -->
-    <section class="zona-interactiva" id="juego">
-        <div class="container">
-            <h2>Armá tu Mochila de Expedición</h2>
-            <p class="subtitulo">Seleccioná únicamente los 5 elementos indispensables para el trekking.</p>
+    <!-- BITÁCORA / ITINERARIO -->
+    <section id="bitacora" class="seccion-bitacora">
+        <h2>Bitácora de Expedición</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">🚌</div>
+                <div class="timeline-content">
+                    <h3>Día 1: Salida e Inserción</h3>
+                    <p>Partida hacia San Martín de los Andes. Traslado a Hua Hum y armado del campamento base.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">🌊</div>
+                <div class="timeline-content">
+                    <h3>Día 2: Cascada Chachín y Bahía Elvira</h3>
+                    <p>Trekking interpretativo a la Cascada Chachín y navegación en kayaks por la cuenca del Lago Nonthué.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">♨️</div>
+                <div class="timeline-content">
+                    <h3>Día 3: Lago y Termas de Queñi</h3>
+                    <p>Travesía hacia el Lago Queñi. Caminata a las termas naturales en selva valdiviana.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">⛰️</div>
+                <div class="timeline-content">
+                    <h3>Día 4: Ascenso al Cerro Mallo</h3>
+                    <p>Jornada técnica de cumbre. Aplicación de técnicas de progresión en montaña y orientación.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">🔥</div>
+                <div class="timeline-content">
+                    <h3>Día 5: Cierre y Cierre Comunitario</h3>
+                    <p>Actividades ludomotrices grupales, evaluación final, desarme de campamento y retorno.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA / EXPERIENCIAS -->
+    <section id="galeria" class="seccion-galeria">
+        <h2>Cuadrícula de Experiencias</h2>
+        <div class="galeria-grid">
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/rapel.jpg" alt="Rápel">
+                <div class="card-info"><h3>Rápel y Cuerdas</h3><p>Técnicas de descenso de seguridad.</p></div>
+            </div>
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/trekking.jpg" alt="Trekking">
+                <div class="card-info"><h3>Trekking de Montaña</h3><p>Senderismo de baja y media dificultad.</p></div>
+            </div>
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/chachin.jpg" alt="Cascada Chachín">
+                <div class="card-info"><h3>Cascada Chachín</h3><p>Observación del bioma del bosque andino.</p></div>
+            </div>
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/bahia-elvira.jpg" alt="Bahía Elvira">
+                <div class="card-info"><h3>Bahía Elvira</h3><p>Prácticas acuáticas y cabuyería.</p></div>
+            </div>
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/campamento-queni.jpg" alt="Campamento Queñi">
+                <div class="card-info"><h3>Campamento Queñi</h3><p>Vida de campamento y pernocte.</p></div>
+            </div>
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/termas.jpg" alt="Termas de Queñi">
+                <div class="card-info"><h3>Termas de Queñi</h3><p>Descanso y registro de bitácora.</p></div>
+            </div>
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/cerro-mallo.jpg" alt="Cerro Mallo">
+                <div class="card-info"><h3>Cerro Mallo</h3><p>Desafío de cumbre y superación.</p></div>
+            </div>
+            <div class="card-experiencia">
+                <img src="IMAGENES/actividades/guardaparques.jpg" alt="Guardaparques">
+                <div class="card-info"><h3>Seccional Guardaparques</h3><p>Charlas sobre cuidado ambiental.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREA INTERACTIVA (MOCHILA + QUIZ) -->
+    <section id="interactivo" class="seccion-interactiva">
+        <h2>Zona Interactiva de Preparación</h2>
+
+        <!-- JUEGO DE LA MOCHILA -->
+        <div id="juego-seccion" class="zona-interactiva">
+            <h3>Juego: Prepará tu Mochila de Expedición</h3>
+            <p>Haz clic o arrastra únicamente los elementos indispensables para la montaña:</p>
             
             <div class="dashboard-juego">
                 <div class="objetos">
-                    <button class="objeto correcto">🧥 Campera Impermeable</button>
-                    <button class="objeto incorrecto">🎸 Guitarra de Madera</button>
-                    <button class="objeto correcto">🔦 Linterna Frontal</button>
-                    <button class="objeto incorrecto">📺 Televisor Portátil</button>
-                    <button class="objeto correcto">💧 Botella de Agua</button>
-                    <button class="objeto correcto">🩹 Botiquín Personal</button>
-                    <button class="objeto incorrecto">👟 Zapatillas de Lona</button>
-                    <button class="objeto correcto">🗺️ Mapa y Brújula</button>
+                    <button class="objeto correcto" draggable="true">⛺ Carpa ligera</button>
+                    <button class="objeto correcto" draggable="true">🛌 Bolsa de dormir (-10°C)</button>
+                    <button class="objeto incorrecto" draggable="true">🎮 Consola Portátil</button>
+                    <button class="objeto correcto" draggable="true">🔦 Linterna frontal</button>
+                    <button class="objeto incorrecto" draggable="true">🛴 Monopatín</button>
+                    <button class="objeto correcto" draggable="true">🧥 Campera Impermeable</button>
+                    <button class="objeto incorrecto" draggable="true">🪞 Espejo de mano</button>
+                    <button class="objeto correcto" draggable="true">🩹 Botiquín de Auxilios</button>
                 </div>
                 <div class="mochila">
-                    <div class="mochila-icono">🎒</div>
-                    <p id="mochila-status">Mochila vacía. Haz clic en los elementos correctos.</p>
+                    <h4>🎒 Tu Mochila</h4>
+                    <p id="mochila-status">Haz clic o arrastra objetos aquí para comenzar...</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="separador">
+
+        <!-- QUIZ DE SUPERVIVENCIA -->
+        <div class="quiz-section-container">
+            <div class="quiz-hud-wrapper">
+                <div class="hud-title">
+                    <h3>Examen de Supervivencia</h3>
+                    <p>Obtené tu Pasaporte al Bosque respondiendo correctamente:</p>
+                </div>
+                <div id="quiz-contenedor">
+                    <!-- Contenido dinámico inyectado por JS -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EXAMEN INTERACTIVO -->
-    <section class="zona-interactiva" id="examen" style="background: #112219;">
-        <div class="container">
-            <h2>Acreditación de Seguridad</h2>
-            <p class="subtitulo">Responde correctamente para obtener tu pasaporte al bosque.</p>
-            <div class="quiz-section-container">
-                <div class="quiz-hud-wrapper">
-                    <div id="quiz-contenedor"></div>
-                </div>
+    <!-- FAQ -->
+    <section id="faq" class="seccion-faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-container">
+            <div class="mapa-nodos">
+                <div class="punto-nodo active" data-target="panel-clima"> Clima</div>
+                <div class="punto-nodo" data-target="panel-equipo"> Equipo</div>
+                <div class="punto-nodo" data-target="panel-comida"> Comida</div>
+                <div class="punto-nodo" data-target="panel-senal"> Señal / VHF</div>
             </div>
-        </div>
-    </section>
-
-    <!-- FAQ INTERACTIVO -->
-    <section class="faq-interactivo" id="faq">
-        <div class="container">
-            <h2>Preguntas Frecuentes</h2>
-            <p class="subtitulo">Información clave sobre la logística y la estadía.</p>
-            
-            <div class="faq-layout">
-                <div class="faq-barra-navegacion">
-                    <div class="linea-guia"></div>
-                    <div class="punto-nodo active" data-target="panel-1">
-                        <div class="circulo-emoji">🏕️</div>
-                        <span class="etiqueta-nodo">Alojamiento</span>
-                    </div>
-                    <div class="punto-nodo" data-target="panel-2">
-                        <div class="circulo-emoji">🍲</div>
-                        <span class="etiqueta-nodo">Comidas</span>
-                    </div>
-                    <div class="punto-nodo" data-target="panel-3">
-                        <div class="circulo-emoji">📶</div>
-                        <span class="etiqueta-nodo">Comunicación</span>
-                    </div>
+            <div class="paneles-informacion">
+                <div class="cuadro-panel active" id="panel-clima">
+                    <h3>🌤️ Clima y Meteorología</h3>
+                    <p>El clima en la cordillera es variable. Las temperaturas oscilan entre 5°C por la noche y 20°C en el día. Es indispensable vestirse en capas.</p>
                 </div>
-
-                <div class="faq-contenido-paneles">
-                    <div class="cuadro-panel active" id="panel-1">
-                        <h3>¿Dónde acampamos?</h3>
-                        <p>Pernoctamos en zonas habilitadas por Parques Nacionales en Hua Hum y Lago Queñi con letrinas agrestes y acceso a agua de vertiente.</p>
-                    </div>
-                    <div class="cuadro-panel" id="panel-2">
-                        <h3>¿Cómo se organiza la comida?</h3>
-                        <p>Nos dividimos por patrullas de cocina con raciones calculadas previamente para alta montaña y cocinillas a gas.</p>
-                    </div>
-                    <div class="cuadro-panel" id="panel-3">
-                        <h3>¿Hay señal de celular?</h3>
-                        <p>No hay cobertura telefónica. La comunicación con la base se realiza mediante radios VHF del equipo docente.</p>
-                    </div>
+                <div class="cuadro-panel" id="panel-equipo">
+                    <h3>🎒 Equipo Obligatorio</h3>
+                    <p>Mochila de 60L o más, bolsa de dormir sintética o pluma (-5°C confort), aislante, calzado de trekking con buen agarre y campera impermeable.</p>
+                </div>
+                <div class="cuadro-panel" id="panel-comida">
+                    <h3>🍲 Alimentación y Agua</h3>
+                    <p>Raciones organizadas por patrullas. Agua potable disponible en arroyos de deshielo, con pastillas potabilizadoras recomendadas.</p>
+                </div>
+                <div class="cuadro-panel" id="panel-senal">
+                    <h3>📻 Señal y Comunicaciones</h3>
+                    <p>No hay señal celular en Hua Hum. La comunicación se realiza mediante radios VHF del Parque Nacional Lanín y repetidoras del área.</p>
                 </div>
             </div>
         </div>
@@ -266,8 +224,8 @@
 
     <!-- FOOTER -->
     <footer>
-        <p class="footer-materia">Instituto Superior de Educación Física Nº2 "Federico Dickens"</p>
-        <p class="copyright">© Prácticas Ludomotrices en el Ámbito Natural</p>
+        <p>© 2026 ISEF Nº2 Federico Dickens — Prácticas Ludomotrices en el Ámbito Natural.</p>
+        <p>San Martín de los Andes, Provincia del Neuquén, Argentina.</p>
     </footer>
 
     <script src="script.js"></script>
